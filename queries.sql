@@ -36,3 +36,16 @@ SELECT "Order".Id, "Customer".CompanyName AS CustomerCompany, "Employee".LastNam
 FROM "Order" 
 JOIN "Employee" ON "Employee".Id = "Order".EmployeeId
 JOIN "Customer" ON "Order".CustomerId = "Customer".Id
+
+
+-- -   In [SQL Try Editor at W3Schools.com](https://www.w3schools.com/Sql/tryit.asp?filename=trysql_select_top):
+--     -   Displays CategoryName and a new column called Count that shows how many products are in each category. Shows 8 records.
+
+SELECT "CategoryName", COUNT(*) AS Count
+FROM "Products" as p
+JOIN "Categories"as c
+ON c."CategoryId" = p."CategoryID"
+GROUP BY p."CategoryID"
+
+
+--     -   Display OrderID and a column called ItemCount that shows the total number of products placed on the order. Shows 196 records.
