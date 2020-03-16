@@ -49,3 +49,7 @@ GROUP BY p."CategoryID"
 
 
 --     -   Display OrderID and a column called ItemCount that shows the total number of products placed on the order. Shows 196 records.
+
+SELECT "OrderID", SUM("Quantity") AS ItemCount
+FROM "OrderDetails"
+GROUP BY "OrderId"
