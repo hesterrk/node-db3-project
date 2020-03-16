@@ -36,18 +36,11 @@ function findById(id) {
 // -   This array should include the `scheme_name` _not_ the `scheme_id`.
 
 function findSteps(id) {
-    return db("steps as s")
+  return db("steps as s")
     .join("schemes as sc", "sc.id", "s.scheme_id")
     .where("scheme_id", id)
-    .select("s.id", "sc.scheme_name", "s.step_number", "s.instructions")
-
+    .select("s.id", "sc.scheme_name", "s.step_number", "s.instructions");
 }
-
-
-
-
-
-
 
 // -   `add(scheme)`:
 // -   Expects a scheme object.
