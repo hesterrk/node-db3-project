@@ -8,7 +8,8 @@ module.exports = {
   findSteps,
   add,
   update,
-  remove
+  remove,
+  addStep
 };
 
 //-   `find()`:
@@ -72,4 +73,13 @@ function remove(id) {
   return db("schemes")
     .where({ id })
     .del();
+}
+
+// -   `addStep(step, scheme_id)`:  It inserts the new step into the database, correctly linking it to the intended scheme.
+//POST
+
+function addStep(step, scheme_id) {
+  return db("steps")
+    .insert(step)
+    .where("scheme_id", scheme_id);
 }

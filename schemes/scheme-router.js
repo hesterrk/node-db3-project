@@ -87,9 +87,12 @@ router.post("/", async (req, res, next) => {
 router.post("/:id/steps", async (req, res, next) => {
   try {
     const stepData = req.body;
+    console.log(stepData)
     const { id } = req.params;
+    // console.log(id)
     const scheme = await Schemes.findById(id);
     if (scheme) {
+      // console.log(scheme)
       const step = await Schemes.addStep(stepData, id);
       res.status(201).json(step);
     } else {
