@@ -64,7 +64,14 @@ GROUP BY "Orders".ShipperID
 
 
 
--- Find the top 5 best performing employees measured in revenue
+-- Find the top 5 best performing employees measured in orders
+
+SELECT "Employees".FirstName, SUM(Quantity) as QuantitySold
+FROM "Employees"
+JOIN "Orders" ON "Employees".EmployeeID = "Orders".EmployeeID
+JOIN "OrderDetails" ON "Orders".OrderID = "OrderDetails".OrderID
+GROUP BY "Employees".EmployeeID
+LIMIT 5
 
 
 
