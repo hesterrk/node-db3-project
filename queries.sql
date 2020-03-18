@@ -77,8 +77,13 @@ LIMIT 5
 
 -- Find the customer country with the most orders
 
+SELECT "Customers".Country, COUNT(*) as MostOrders
+FROM "Customers"
+JOIN "Orders" ON "Customers".CustomerID = "Orders".CustomerID
+JOIN "OrderDetails" ON "Orders".OrderID = "OrderDetails".OrderID
+GROUP BY "Customers".Country
+ORDER BY "MostOrders" DESC
+LIMIT 1
 
 
 
-
--- Find the shipper that moves the most cheese measured in units
