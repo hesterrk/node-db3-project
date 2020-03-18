@@ -48,8 +48,30 @@ ON c."CategoryId" = p."CategoryID"
 GROUP BY p."CategoryID"
 
 
---     -   Display OrderID and a column called ItemCount that shows the total number of products placed on the order. Shows 196 records.
+--  Display OrderID and a column called ItemCount that shows the total number of products placed on the order. Shows 196 records.
 
 SELECT "OrderID", SUM("Quantity") AS ItemCount
 FROM "OrderDetails"
 GROUP BY "OrderId"
+
+
+-- Find the number of orders by each shipper
+SELECT "Shippers".ShipperID, COUNT(*) AS Count
+FROM "Orders"
+JOIN "Shippers"
+ON "Orders".ShipperID = "Shippers".ShipperID
+GROUP BY "Orders".ShipperID
+
+
+
+-- Find the top 5 best performing employees measured in revenue
+
+
+
+-- Find the customer country with the most orders
+
+
+
+
+
+-- Find the shipper that moves the most cheese measured in units
